@@ -1,0 +1,31 @@
+"""
+Projeto3-extraidadosweb
+Descrição: programa que coleta dados de noticias na página do G1 e salva em um arquivo no
+formato html
+versão: 0.0.1
+data: 19/09/2022
+"""
+
+# importa arquivos
+import requests
+
+# lê a página de política do g1
+def page_reader(endereco:str) -> requests.models.Response:
+    pagina=requests.get(endereco)
+    return pagina
+    
+# grava arquivo com dados da página
+def grava_pagina_web(resposta: requests.models.Response)->None:
+    arquivo=open('pagina.html','wb')
+    for texto in resposta.iter_content():
+        arquivo.write(texto)
+    arquivo.close()
+    
+def main():
+    endereco="https://g1.globo.com/politica/"
+    politica=page_reader(endereco)
+    grava_pagina_web(politica)
+    print(f"A página {endereco} foi gravada com sucesso no arquivo 'pagina.html'.")
+
+if __name__=="__main__":
+    main()
