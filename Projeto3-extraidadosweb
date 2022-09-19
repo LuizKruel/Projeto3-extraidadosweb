@@ -2,8 +2,9 @@
 Projeto3-extraidadosweb
 Descrição: programa que coleta dados de noticias na página do G1 e salva em um arquivo no
 formato html
-versão: 0.0.1
-data: 19/09/2022
+Autor: Luiz Kruel
+Data: 19/09/2022
+Versão: 0.0.1
 """
 
 # importa arquivos
